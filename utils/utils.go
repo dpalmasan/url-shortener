@@ -1,5 +1,7 @@
 package utils
 
+import "os"
+
 var codes = [...]string{
 	"0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
 	"a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
@@ -16,4 +18,12 @@ func Base62(number uint64) string {
 		number /= 62
 	}
 	return result
+}
+
+func Getenv(key, fallback string) string {
+	value := os.Getenv(key)
+	if len(value) == 0 {
+		return fallback
+	}
+	return value
 }

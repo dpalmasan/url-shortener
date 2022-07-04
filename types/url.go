@@ -1,9 +1,7 @@
 package types
 
-type UrlId uint64
-
 type Url struct {
-	Id         UrlId  `json:"id" bson:"id,omitempty"`
+	Id         uint64 `json:"id" bson:"id,omitempty"`
 	Url        string `json:"url" bson:"url,omitempty"`
 	ShortenUrl string `json:"email" bson:"shorten_url,omitempty"`
 }
