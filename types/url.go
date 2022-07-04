@@ -1,6 +1,6 @@
 package types
 
-type UrlId uint32
+type UrlId uint64
 
 type Url struct {
 	Id         UrlId  `json:"id" bson:"id,omitempty"`
