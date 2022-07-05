@@ -17,7 +17,7 @@ func init() {
 	log.Formatter = new(logrus.JSONFormatter)
 }
 
-func ConnectToMongo() {
+func ConnectToMySql() {
 	DatabaseName = utils.Getenv("MYSQL_DBNAME", "auth")
 	dsn := utils.Getenv("MYSQL_DSN", "")
 
