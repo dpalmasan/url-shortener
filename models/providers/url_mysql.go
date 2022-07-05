@@ -19,7 +19,7 @@ func (m MysqlDBUrl) GetLongUrl(shortUrl string) (types.Url, error) {
 // Ids shouldn't be generated this way! but it is ok for demo purposes
 func (m MysqlDBUrl) CreateShortUrl(url types.Url) (types.Url, error) {
 	url.UrlId = time.Now().Unix()
-	url.ShortenUrl = "https://dpurl.dev/" + utils.Base62(url.UrlId)
+	url.ShortenUrl = utils.Base62(url.UrlId)
 	result := mysqldb.Session.Create(&url)
 	if result.Error != nil {
 		return url, result.Error

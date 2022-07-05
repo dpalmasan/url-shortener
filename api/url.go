@@ -88,7 +88,7 @@ func Create(urlModel models.UrlIface, w http.ResponseWriter, r *http.Request) {
 
 func UrlCtx(urlModel models.UrlIface, next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		shorten_url := "https://dpurl.dev/" + chi.URLParam(r, "urlID")
+		shorten_url := chi.URLParam(r, "urlID")
 		url, err := urlModel.GetLongUrl(shorten_url)
 		if err != nil {
 			http.Error(w, http.StatusText(404), 404)
